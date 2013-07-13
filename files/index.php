@@ -34,15 +34,15 @@ $text = explode("!", $text);
 	$black = imagecolorallocate($im, 115, 150, 195);
 	
 	// starting y
-	$y = 40;
+	$y = 18;
 	// 3 rows, increase y by 25 each time (new line)
 	foreach($text as $line)
 	{
-		imagettftext($im, 22, 0, 140, $y, $white, $font, $line);
-		$y = $y + 25;		
+		imagettftext($im, 12, 0, 10, $y, $white, $font, $line);
+		$y = $y + 15;		
 	}
-	imagettftext($im, 12, 0, 260, 105, $white, $font, "Data from cyberkitsune.net/cube");
-	imagettftext($im, 12, 0, 5, 18, $white, $font, "zeroi9.com");
+	imagettftext($im, 12, 0, 250, 15, $white, $font, "Data from cyberkitsune.net/cube");
+	imagettftext($im, 10, 0, 428, 53, $white, $font, "zeroi9.com");
 	
 	imagepng($im);
 	imagedestroy($im);
