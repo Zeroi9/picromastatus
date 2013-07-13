@@ -3,22 +3,25 @@ header('Content-Type: image/png');
 // Get json data from CyberKitsuness site 
 $url = "http://direct.cyberkitsune.net/canibuycubeworld/status.json";
 $json = file_get_contents($url);
-if($json["site"] == true)
+$json_decode = json_decode($json);
+
+
+if($json_decode->site == true)
 	$text = "Picroma: UP!";
 else
 	$text = "Picroma: DOWN!";
 
-if($json["reg"] == true)
+if($json_decode->reg == true)
 	$text .= "Registrations: UP!";
 else
 	$text .= "Registrations: DOWN!";
 
-if($json["shop"] == true)
+if($json_decode->shop == true)
 	$text .= "Shop: UP!";
 else
 	$text .= "Shop: DOWN!";
 
-// create image
+
 $text = explode("!", $text);
 	putenv('GDFONTPATH=' . realpath('.'));
 	$font = 'arialbd.ttf';
